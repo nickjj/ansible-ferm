@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Nick Janetakis
-  description: Manage iptables using the ferm service.
+  description: Manage iptables using the ferm tool.
   company:
   license: license MIT
   min_ansible_version: 1.6
