@@ -164,6 +164,10 @@ This file will be written to `/etc/ferm/filter-input.d/nginx_accept` and it will
 
 Tested on ubuntu 12.04 LTS but it should work on other versions that are similar.
 
+## Ansible galaxy
+
+You can find it on the official [ansible galaxy](https://galaxy.ansible.com/list#/roles/1077) if you want to rate it.
+
 ## License
 
 MIT
