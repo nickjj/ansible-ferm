@@ -102,7 +102,7 @@ The use case for this would be to limit connections on specific ports based on a
         disabled: false
 ```
 
-#### `ferm_input_group_list` / `ferm_input_host_list` with the either template
+#### `ferm_input_group_list` / `ferm_input_host_list` with either template
 
 This would be the same as above except it would be scoped to the groups and hosts list.
 
