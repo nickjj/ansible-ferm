@@ -18,12 +18,12 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
   - >
-    ferm -ln /etc/ferm/ferm.conf
+    sudo ferm -ln /etc/ferm/ferm.conf
     | grep -q 'http ACCEPT'
     && (echo 'Port allowed test: pass' && exit 0)
     || (echo 'Port allowed test: fail' && exit 1)
   - >
-    ferm -ln /etc/ferm/ferm.conf
+    sudo ferm -ln /etc/ferm/ferm.conf
     | grep -q '25 ACCEPT'
     && (echo 'Port not allowed test: pass' && exit 1)
     || (echo 'Port not allowed test: fail' && exit 0)
