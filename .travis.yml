@@ -28,4 +28,4 @@ script:
     && (echo 'Ports rejected test: pass' && exit 0)
     || (echo 'Ports rejected test: fail' && exit 1)
   - sudo ferm -ln /etc/ferm/ferm.conf
-  - sudo cat /etc/ferm/filter-input.d/50_accept_80.conf 
+  - sudo cat /etc/ferm/filter-input.d/50_dport_accept_80.conf 
