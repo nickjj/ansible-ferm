@@ -123,7 +123,7 @@ What this does is set a rule so that only the computer running the ansible playb
       set_fact:
         ansible_controller: '{{ ansible_env.SSH_CLIENT.split(" ") | first }}/32'
       when: ansible_controller is undefined and ansible_connection != "local"
-      tags: ferm
+      tags: [common, ferm]
 
 - name: ensure all servers are commonly configured (with sudo)
   hosts: all
