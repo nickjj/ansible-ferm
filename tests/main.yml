@@ -8,5 +8,4 @@
       tags: ferm
       ferm_input_list:
         - type: "dport_accept"
-          dport: ["time"]
-          filename: "nginx_accept"
+          dport: ["80"]
