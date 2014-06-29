@@ -8,4 +8,4 @@
       tags: ferm
       ferm_input_list:
         - type: "dport_accept"
-          dport: ["80"]
+          dport: ["http"]
