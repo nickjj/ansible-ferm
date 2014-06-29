@@ -5,7 +5,7 @@
 
   roles:
     - role: ansible-ferm
-      tags: [app, ferm]
+      tags: ferm
       ferm_input_list:
         - type: "dport_accept"
           dport: ["http"]
