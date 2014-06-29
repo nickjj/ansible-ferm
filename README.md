@@ -6,7 +6,7 @@ It is an [ansible](http://www.ansible.com/home) role to manage iptables using th
 
 Working with iptables directly can be really painful and the ufw module is decent for basic needs but sometimes you need a bit more control. I also like the approach of writing templates rather than executing allow/deny commands with ufw. I feel like it sets the tone for a more idempotent setup.
 
-This role is basically copy/pasted from the [ginas project]https://github.com/ginas/ginas/tree/master/playbooks/roles/ginas.ferm. Ginas is one of the best ansible examples I've found, it was created by [@drybjed](https://twitter.com/drybjed).
+This role is basically copy/pasted from the [ginas project](https://github.com/ginas/ginas/tree/master/playbooks/roles/ginas.ferm). Ginas is one of the best ansible examples I've found, it was created by [@drybjed](https://twitter.com/drybjed).
 
 ## Role variables
 
