@@ -19,9 +19,9 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
   - >
     sudo ferm -ln /etc/ferm/ferm.conf
-    | grep -q 'http --jump ACCEPT'
-    && (echo 'HTTP accepted test: pass' && exit 0)
-    || (echo 'HTTP accepted test: fail' && exit 1)
+    | grep -q 'time --jump ACCEPT'
+    && (echo 'Time accepted test: pass' && exit 0)
+    || (echo 'Time accepted test: fail' && exit 1)
   - >
     sudo ferm -ln /etc/ferm/ferm.conf
     | grep -q 'INPUT --jump REJECT --reject-with icmp-proto-unreachable'
