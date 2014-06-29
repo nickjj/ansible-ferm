@@ -19,7 +19,8 @@ ferm_enabled: true
 # Should ferm do ip-based tagging/locking when it detects someone is trying to port scan you?
 ferm_limit_portscans: false
 
-# The default actions to take for certain policies. You likely want to keep these at the default values. This ensures all ports are blocked until you white list them.
+# The default actions to take for certain policies. You likely want to keep them at the default values.
+# This ensures all ports are blocked until you white list them.
 ferm_default_policy_input: DROP
 ferm_default_policy_output: ACCEPT
 ferm_default_policy_forward: DROP
@@ -92,7 +93,7 @@ The use case for this would be to limit connections on specific ports based on a
         # OPTIONAL: Defaults to 300.
         seconds: "300"
 
-        # How many connections should be allowed per the amount of seconds you specify.
+        # How many connections should be allowed per the amount of seconds you specified.
         # OPTIONAL: Defaults to 5.
         hits: "5"
 
@@ -101,11 +102,11 @@ The use case for this would be to limit connections on specific ports based on a
         disabled: false
 ```
 
-### `ferm_input_group_list` / `ferm_input_host_list` with the either template
+#### `ferm_input_group_list` / `ferm_input_host_list` with the either template
 
 This would be the same as above except it would be scoped to the groups and hosts list.
 
-## Common plays in your playbook
+## Example common plays in your playbook
 
 This role expects an `ansible_controller` fact to be set. Notice how the play is ran without sudo. This is necessary for ansible to populate `ansible_env.SSH_CLIENT`.
 
@@ -114,7 +115,7 @@ What this does is set a rule so that only the computer running the ansible playb
 ```
 ---
 - name: ensure all servers are commonly configured (without sudo)
-  hosts: all
+  hosts: all:!localhost
   sudo: false
 
   tasks:
