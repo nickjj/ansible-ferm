@@ -12,7 +12,7 @@
       tags: ferm
 
 - name: ensure all servers are commonly configured (with sudo)
-  hosts: all
+  hosts: localhost
   remote_user: travis
   sudo: true
 
