@@ -24,6 +24,6 @@ script:
     || (echo 'HTTP accepted test: fail' && exit 1)
   - >
     sudo ferm -ln /etc/ferm/ferm.conf
-    | grep -q '--jump REJECT --reject-with icmp-proto-unreachable'
+    | grep -q 'INPUT --jump REJECT --reject-with icmp-proto-unreachable'
     && (echo 'Ports rejected test: pass' && exit 0)
     || (echo 'Ports rejected test: fail' && exit 1)
