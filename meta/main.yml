@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Nick Janetakis
+  description: Manage iptables using the ferm service.
+  company:
+  license: license MIT
+  min_ansible_version: 1.6
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+
+  categories:
+  - networking
+  - system
+  - web
+
+dependencies: []

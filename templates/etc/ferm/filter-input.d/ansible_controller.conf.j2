@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+# manual customization of this file is not recommended
+
+protocol tcp dport ssh saddr {{ ansible_controller }} ACCEPT;
