@@ -19,11 +19,11 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
   - >
     sudo ferm -ln /etc/ferm/ferm.conf
-    | grep -q 'http ACCEPT'
-    && (echo 'Port allowed test: pass' && exit 0)
-    || (echo 'Port allowed test: fail' && exit 1)
+    | grep -q 'http --jump ACCEPT'
+    && (echo 'HTTP accepted test: pass' && exit 0)
+    || (echo 'HTTP accepted test: fail' && exit 1)
   - >
     sudo ferm -ln /etc/ferm/ferm.conf
-    | grep -q '25 ACCEPT'
-    && (echo 'Port not allowed test: pass' && exit 1)
-    || (echo 'Port not allowed test: fail' && exit 0)
+    | grep -q '--jump REJECT --reject-with icmp-proto-unreachable'
+    && (echo 'Ports rejected test: pass' && exit 1)
+    || (echo 'Ports rejected test: fail' && exit 0)
