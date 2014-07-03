@@ -135,27 +135,22 @@ What this does is set a rule so that only the computer running the ansible playb
 
 ## Example app play in your playbook
 
-For the sake of this example let's assume you have a group called **app** and you have a typical `site.yml` file.
+For the sake of this example let's assume you have a group called **app** and you have a typical `group_vars/app.yml` file.
 
-To use this role edit your `site.yml` file to look something like this:
+To open the http/https ports on your app server edit your `app.yml` file to look something like this:
 
 ```
 ---
-- name: ensure app servers are configured
-- hosts: app
+ferm_input_group_list:
+  - type: "dport_accept"
+    dport: ["http", "https"]
+    filename: "nginx_accept"
 
-  roles:
-    - role: nickjj.ferm
-      tags: [app, ferm]
-      ferm_input_list:
-        - type: "dport_accept"
-          dport: ["http", "https"]
-          filename: "nginx_accept"
 ```
 
 The above assumes you would be using nginx to reverse proxy your app but that isn't necessary. I only chose the `nginx_accept` filename because I use nginx. You can name it whatever you want or even remove the filename to have this role automatically generate a filename for you.
 
-This file will be written to `/etc/ferm/filter-input.d/nginx_accept` and it will contain the rules necessary to open the `http` and `https` ports.
+This file will be written to `/etc/ferm/filter-input.d/nginx_accept.conf` and it will contain the rules necessary to open the `http` and `https` ports.
 
 ## Installation
 
