@@ -67,6 +67,10 @@ The use case for this would be to white list ports to be opened.
 
         # The filename which will get written to `/etc/ferm/filter-input.d/nginx_accept`.
         filename: "nginx_accept"
+
+        # Should this rule be deleted?
+        # OPTIONAL: Defaults to false.
+        delete: false
 ```
 
 ### `ferm_input_list` with the `dport_limit` template
