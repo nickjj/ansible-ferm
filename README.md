@@ -39,38 +39,36 @@ apt_cache_valid_time: 86400
 The use case for this would be to white list ports to be opened.
 
 ```
-  - role: nickjj.ferm
-    tags: ferm
-    ferm_input_list:
-        # Choose the template to use.
-        # REQUIRED: It can be either `dport_accept` or `dport_limit`.
-      - type: "dport_accept"
+ferm_input_list:
+    # Choose the template to use.
+    # REQUIRED: It can be either `dport_accept` or `dport_limit`.
+  - type: "dport_accept"
 
-        # Which protocol should be used?
-        # OPTIONAL: Defaults to tcp.
-        protocol: "tcp"
+    # Which protocol should be used?
+    # OPTIONAL: Defaults to tcp.
+    protocol: "tcp"
 
-        # Which ports should be open?
-        # REQUIRED: It can be the port value or a service in `/etc/services`.
-        dport: ["http", "https"]
+    # Which ports should be open?
+    # REQUIRED: It can be the port value or a service in `/etc/services`.
+    dport: ["http", "https"]
 
-        # Which IP addresses should be white listed?
-        # OPTIONAL: Defaults to an empty list.
-        saddr: []
+    # Which IP addresses should be white listed?
+    # OPTIONAL: Defaults to an empty list.
+    saddr: []
 
-        # Should all IP addresses be white listed?
-        # OPTIONAL: Defaults to true.
-        accept_any: true
+    # Should all IP addresses be white listed?
+    # OPTIONAL: Defaults to true.
+    accept_any: true
 
-        # Which filename should be written out?
-        # OPTIONAL: Defaults to the first port listed in `dport`.
+    # Which filename should be written out?
+    # OPTIONAL: Defaults to the first port listed in `dport`.
 
-        # The filename which will get written to `/etc/ferm/filter-input.d/nginx_accept`.
-        filename: "nginx_accept"
+    # The filename which will get written to `/etc/ferm/filter-input.d/nginx_accept`.
+    filename: "nginx_accept"
 
-        # Should this rule be deleted?
-        # OPTIONAL: Defaults to false.
-        delete: false
+    # Should this rule be deleted?
+    # OPTIONAL: Defaults to false.
+    delete: false
 ```
 
 ### `ferm_input_list` with the `dport_limit` template
@@ -78,32 +76,30 @@ The use case for this would be to white list ports to be opened.
 The use case for this would be to limit connections on specific ports based on an amount of time. This could be used to harden your security.
 
 ```
-  - role: nickjj.ferm
-    tags: ferm
-    ferm_input_list:
-        # Choose the template to use.
-        # REQUIRED: It can be either `dport_accept` or `dport_limit`.
-      - type: "dport_limit"
+ferm_input_list:
+    # Choose the template to use.
+    # REQUIRED: It can be either `dport_accept` or `dport_limit`.
+  - type: "dport_limit"
 
-        # Which protocol should be used?
-        # OPTIONAL: Defaults to tcp.
-        protocol: "tcp"
+    # Which protocol should be used?
+    # OPTIONAL: Defaults to tcp.
+    protocol: "tcp"
 
-        # Which ports should be open?
-        # REQUIRED: It can be the port value or a service in `/etc/services`.
-        dport: ["ssh"]
+    # Which ports should be open?
+    # REQUIRED: It can be the port value or a service in `/etc/services`.
+    dport: ["ssh"]
 
-        # How many seconds to count in between the hits?
-        # OPTIONAL: Defaults to 300.
-        seconds: "300"
+    # How many seconds to count in between the hits?
+    # OPTIONAL: Defaults to 300.
+    seconds: "300"
 
-        # How many connections should be allowed per the amount of seconds you specified.
-        # OPTIONAL: Defaults to 5.
-        hits: "5"
+    # How many connections should be allowed per the amount of seconds you specified.
+    # OPTIONAL: Defaults to 5.
+    hits: "5"
 
-        # Should this rule be disabled?
-        # OPTIONAL: Defaults to false.
-        disabled: false
+    # Should this rule be disabled?
+    # OPTIONAL: Defaults to false.
+    disabled: false
 ```
 
 #### `ferm_input_group_list` / `ferm_input_host_list` with either template
